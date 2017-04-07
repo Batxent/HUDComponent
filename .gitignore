@@ -1,0 +1,7 @@
+HUDComponent.xcodeproj/xcuserdata/
+HUDComponent.xcworkspace/
+Pods/
+*.swp
+Podfile.lock
+.DS_Store
+HUDComponent.xcodeproj/project.xcworkspace/xcuserdata/
