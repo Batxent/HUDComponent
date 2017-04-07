@@ -28,32 +28,41 @@ static int kProgressViewTag = 88888;
     [self _showToastWithTitle:title detail:detail];
 }
 
-- (void)dew_showLoadingAnimating
+- (void)dew_showAnimatingWithImages:(NSArray *)images
 {
-    UIImageView *loadingImageView = [[UIImageView alloc]init];
-    loadingImageView.animationImages = _loadingImages();
-    loadingImageView.animationDuration = 0.045 * 20;
-    loadingImageView.animationRepeatCount = 0;
-    [loadingImageView startAnimating];
+    if (images.count) {
+        UIImageView *loadingImageView = [[UIImageView alloc]init];
+        loadingImageView.animationImages = images;
+        loadingImageView.animationDuration = 0.045 * images.count;
+        loadingImageView.animationRepeatCount = 0;
+        [loadingImageView startAnimating];
 
-    UIView *backgroundView = [UIView new];
-    backgroundView.tag = kLoadingViewTag;
-    backgroundView.frame = [UIScreen mainScreen].bounds;
-    backgroundView.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.770];
-    [backgroundView addSubview:loadingImageView];
+        UIView *backgroundView = [UIView new];
+        backgroundView.tag = kLoadingViewTag;
+        backgroundView.frame = [UIScreen mainScreen].bounds;
+        backgroundView.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.770];
+        [backgroundView addSubview:loadingImageView];
 
-    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    [window addSubview:backgroundView];
+        UIWindow *window = [[UIApplication sharedApplication].delegate window];
 
-    loadingImageView.center = backgroundView.center;
-    loadingImageView.bounds = CGRectMake(0, 0, 66, 66);
+        loadingImageView.center = backgroundView.center;
+        loadingImageView.bounds = CGRectMake(0, 0, 66, 66);
+
+        [self _animation:^{
+            [window addSubview:backgroundView];
+        }];
+
+    }
 }
 
-- (void)dew_hideLoadingAnimating
+- (void)dew_hideAnimating
 {
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
     UIView *view = [window viewWithTag:kLoadingViewTag];
-    [view removeFromSuperview];
+
+    [self _animation:^{
+        [view removeFromSuperview];
+    }];
 }
 
 - (void)dew_showProgressHUD:(CGFloat)progress
@@ -62,7 +71,11 @@ static int kProgressViewTag = 88888;
     if (!progressView) {
         progressView = [[GTProgressView alloc]initWithView:self.view];
         progressView.tag = kProgressViewTag;
-        [self.view addSubview:progressView];
+
+        [self _animation:^{
+            [self.view addSubview:progressView];
+        }];
+
     }
     progressView.progress = progress;
 }
@@ -70,12 +83,8 @@ static int kProgressViewTag = 88888;
 - (void)dew_hideProgressHUD
 {
     GTProgressView *progressView = [self.view viewWithTag:kProgressViewTag];
-    [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionShowHideTransitionViews animations:^{
-        [progressView setHidden:YES];
-    } completion:^(BOOL finished) {
-        if (finished) {
-            [progressView removeFromSuperview];
-        }
+    [self _animation:^{
+        [progressView removeFromSuperview];
     }];
 }
 
@@ -84,7 +93,6 @@ static int kProgressViewTag = 88888;
     [self dew_hideBox];
     UIView *backgroudView = [UIView new];
     backgroudView.frame = self.view.bounds;
-    [self.view addSubview:backgroudView];
     backgroudView.tag = kBoxTag;
 
     if (show) {
@@ -92,20 +100,25 @@ static int kProgressViewTag = 88888;
     }else {
         backgroudView.backgroundColor = [UIColor clearColor];
     }
-
-    [backgroudView addSubview:customView];
     customView.center = self.view.center;
+    [backgroudView addSubview:customView];
 
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(_dewTapSelected:)];
     [backgroudView addGestureRecognizer:tapRecognizer];
 
+    [self _animation:^{
+        [self.view addSubview:backgroudView];
+    }];
 }
 
 - (void)dew_hideBox
 {
     UIView *view = [self.view viewWithTag:kBoxTag];
     if (view) {
-        [view removeFromSuperview];
+        [self _animation:^{
+            [view removeFromSuperview];
+        }];
+
     }
 }
 
@@ -113,7 +126,9 @@ static int kProgressViewTag = 88888;
 - (void)_dewTapSelected:(UITapGestureRecognizer *)sender
 {
     if (sender.state == UIGestureRecognizerStateEnded) {
-        [sender.view removeFromSuperview];
+        [self _animation:^{
+            [sender.view removeFromSuperview];
+        }];
     }
 }
 
@@ -139,21 +154,13 @@ static int kProgressViewTag = 88888;
     });
 }
 
-NSArray *_loadingImages() {
-    static NSArray *tvImges;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSMutableArray *mutable = @[].mutableCopy;
-        for (int i = 0; i < 20 ; i ++) {
-            NSString *imageName = [NSString stringWithFormat:@"%d",i + 1];
-            UIImage *image = [UIImage imageNamed:imageName];
-            if (image) {
-                [mutable addObject:image];
-            }
+- (void)_animation:(void(^)())animation
+{
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        if (animation) {
+            animation();
         }
-        tvImges = mutable;
-    });
-    return tvImges;
+    } completion:nil];
 }
 
 

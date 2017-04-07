@@ -22,8 +22,8 @@
 /**
  展示全屏loading动画,注意无法在viewDidLoad里面使用
  */
-- (void)dew_showLoadingAnimating;
-- (void)dew_hideLoadingAnimating;
+- (void)dew_showAnimatingWithImages:(NSArray *)images;
+- (void)dew_hideAnimating;
 
 - (void)dew_showProgressHUD:(CGFloat)progress;
 - (void)dew_hideProgressHUD;

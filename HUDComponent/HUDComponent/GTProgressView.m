@@ -118,9 +118,12 @@
     _progress = progress;
 
     CGFloat progressHeight = 5;
-
     CGFloat progressWidth = self.width - 10;
-    self.progressView.frame = CGRectMake(5, 5, progress * progressWidth, progressHeight);
+
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.progressView.frame = CGRectMake(5, 5, progress * progressWidth, progressHeight);
+    } completion:nil];
+
     self.progressView.layer.cornerRadius = progressHeight / 2.0;
     self.progressView.layer.masksToBounds = YES;
 
