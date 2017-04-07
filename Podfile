@@ -8,6 +8,5 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'HUDComponent' do
 
     pod 'MBProgressHUD'
-    pod "Resource", :path => "../Resource"
 
 end
