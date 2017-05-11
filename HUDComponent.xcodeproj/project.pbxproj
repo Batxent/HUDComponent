@@ -15,6 +15,11 @@
 		292ABDFC1E8FB10E0024DFEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 292ABDFA1E8FB10E0024DFEF /* LaunchScreen.storyboard */; };
 		292ABE061E8FB1FA0024DFEF /* UIViewController+DEWHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 292ABE051E8FB1FA0024DFEF /* UIViewController+DEWHUD.m */; };
 		29683FE71E9772CD002DAEAA /* GTProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 29683FE61E9772CD002DAEAA /* GTProgressView.m */; };
+		2996AF231EC45E3600B9C510 /* ToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2996AF221EC45E3600B9C510 /* ToastViewController.m */; };
+		2996AF261EC4603500B9C510 /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2996AF251EC4603500B9C510 /* LoadingViewController.m */; };
+		2996AF291EC4607D00B9C510 /* ProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2996AF281EC4607D00B9C510 /* ProgressViewController.m */; };
+		2996AF2C1EC4608F00B9C510 /* ModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2996AF2B1EC4608F00B9C510 /* ModelViewController.m */; };
+		2996AF2F1EC461AE00B9C510 /* CustomViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2996AF2E1EC461AE00B9C510 /* CustomViewViewController.m */; };
 		433B0B6981E2DFEDA6D8805F /* libPods-HUDComponent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE4EB78DFC32EE8ABEE3F7C /* libPods-HUDComponent.a */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +38,16 @@
 		292ABE051E8FB1FA0024DFEF /* UIViewController+DEWHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DEWHUD.m"; sourceTree = "<group>"; };
 		29683FE51E9772CD002DAEAA /* GTProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTProgressView.h; sourceTree = "<group>"; };
 		29683FE61E9772CD002DAEAA /* GTProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTProgressView.m; sourceTree = "<group>"; };
+		2996AF211EC45E3600B9C510 /* ToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastViewController.h; sourceTree = "<group>"; };
+		2996AF221EC45E3600B9C510 /* ToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastViewController.m; sourceTree = "<group>"; };
+		2996AF241EC4603500B9C510 /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		2996AF251EC4603500B9C510 /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		2996AF271EC4607D00B9C510 /* ProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressViewController.h; sourceTree = "<group>"; };
+		2996AF281EC4607D00B9C510 /* ProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressViewController.m; sourceTree = "<group>"; };
+		2996AF2A1EC4608F00B9C510 /* ModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelViewController.h; sourceTree = "<group>"; };
+		2996AF2B1EC4608F00B9C510 /* ModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelViewController.m; sourceTree = "<group>"; };
+		2996AF2D1EC461AE00B9C510 /* CustomViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewViewController.h; sourceTree = "<group>"; };
+		2996AF2E1EC461AE00B9C510 /* CustomViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewViewController.m; sourceTree = "<group>"; };
 		2DC449CD096947A4A0DD6580 /* Pods-HUDComponent.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUDComponent.release.xcconfig"; path = "Pods/Target Support Files/Pods-HUDComponent/Pods-HUDComponent.release.xcconfig"; sourceTree = "<group>"; };
 		5CE4EB78DFC32EE8ABEE3F7C /* libPods-HUDComponent.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HUDComponent.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5402144BE82994FFAE4A3E /* Pods-HUDComponent.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HUDComponent.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HUDComponent/Pods-HUDComponent.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,11 +86,10 @@
 		292ABDEB1E8FB10E0024DFEF /* HUDComponent */ = {
 			isa = PBXGroup;
 			children = (
-				292ABE031E8FB1C70024DFEF /* HUDComponent */,
 				292ABDEF1E8FB10E0024DFEF /* AppDelegate.h */,
 				292ABDF01E8FB10E0024DFEF /* AppDelegate.m */,
-				292ABDF21E8FB10E0024DFEF /* ViewController.h */,
-				292ABDF31E8FB10E0024DFEF /* ViewController.m */,
+				2996AF201EC45DC600B9C510 /* ViewController */,
+				292ABE031E8FB1C70024DFEF /* HUDComponent */,
 				292ABDEC1E8FB10E0024DFEF /* Supporting Files */,
 			);
 			path = HUDComponent;
@@ -102,6 +116,25 @@
 				29683FE61E9772CD002DAEAA /* GTProgressView.m */,
 			);
 			path = HUDComponent;
+			sourceTree = "<group>";
+		};
+		2996AF201EC45DC600B9C510 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				292ABDF21E8FB10E0024DFEF /* ViewController.h */,
+				292ABDF31E8FB10E0024DFEF /* ViewController.m */,
+				2996AF2A1EC4608F00B9C510 /* ModelViewController.h */,
+				2996AF2B1EC4608F00B9C510 /* ModelViewController.m */,
+				2996AF211EC45E3600B9C510 /* ToastViewController.h */,
+				2996AF221EC45E3600B9C510 /* ToastViewController.m */,
+				2996AF241EC4603500B9C510 /* LoadingViewController.h */,
+				2996AF251EC4603500B9C510 /* LoadingViewController.m */,
+				2996AF271EC4607D00B9C510 /* ProgressViewController.h */,
+				2996AF281EC4607D00B9C510 /* ProgressViewController.m */,
+				2996AF2D1EC461AE00B9C510 /* CustomViewViewController.h */,
+				2996AF2E1EC461AE00B9C510 /* CustomViewViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		6931A1FA9891169F66EA4846 /* Pods */ = {
@@ -246,9 +279,14 @@
 			files = (
 				292ABE061E8FB1FA0024DFEF /* UIViewController+DEWHUD.m in Sources */,
 				29683FE71E9772CD002DAEAA /* GTProgressView.m in Sources */,
+				2996AF2F1EC461AE00B9C510 /* CustomViewViewController.m in Sources */,
 				292ABDF41E8FB10E0024DFEF /* ViewController.m in Sources */,
+				2996AF261EC4603500B9C510 /* LoadingViewController.m in Sources */,
+				2996AF2C1EC4608F00B9C510 /* ModelViewController.m in Sources */,
 				292ABDF11E8FB10E0024DFEF /* AppDelegate.m in Sources */,
+				2996AF231EC45E3600B9C510 /* ToastViewController.m in Sources */,
 				292ABDEE1E8FB10E0024DFEF /* main.m in Sources */,
+				2996AF291EC4607D00B9C510 /* ProgressViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

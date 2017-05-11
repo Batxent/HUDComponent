@@ -44,7 +44,6 @@ static int kProgressViewTag = 88888;
         [backgroundView addSubview:loadingImageView];
 
         UIWindow *window = [[UIApplication sharedApplication].delegate window];
-
         loadingImageView.center = backgroundView.center;
         loadingImageView.bounds = CGRectMake(0, 0, 66, 66);
 
@@ -165,9 +164,6 @@ static int kProgressViewTag = 88888;
 
 
 @end
-
-
-
 
 
 
