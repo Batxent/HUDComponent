@@ -7,6 +7,8 @@
 //
 
 #import "LoadingViewController.h"
+#import "DEWHUDWarpper.h"
+
 
 @interface LoadingViewController ()
 
@@ -24,10 +26,11 @@
 
 - (void)buttonClicked:(UIButton *)sender
 {
-    [self dew_showAnimatingWithImages:[self images]];
 
+    [DEWHUDWarpper showAnimatingWithImages:[self images]];
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dew_hideAnimating];
+        [self hideAnimating];
     });
 
 

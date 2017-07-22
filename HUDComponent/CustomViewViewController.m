@@ -7,6 +7,7 @@
 //
 
 #import "CustomViewViewController.h"
+#import "DEWHUDWarpper.h"
 
 @interface CustomViewViewController ()
 
@@ -27,8 +28,8 @@
         UIView *view = [UIView new];
         view.backgroundColor = [UIColor redColor];
         view.frame = CGRectMake(0, 0, 300, 300);
-        [self dew_showBoxWithCustomView:view shouldShowBackgroundView:NO];
-
+    
+    [DEWHUDWarpper showPopupWithView:view shouldShowMask:YES];
 }
 
 

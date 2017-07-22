@@ -26,28 +26,11 @@
     self.title = @"HUDComponent";
     self.view.backgroundColor = [UIColor whiteColor];
 
-//    [self dew_showToastWithTitle:@"金高" detail:@"我的天哪"];
+//    [self showToastWithTitle:@"金高" detail:@"我的天哪"];
 
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cellID"];
 
     [self.view addSubview:self.tableView];
-
-//    [self dew_showProgressHUD:0.1];
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self dew_showProgressHUD:0.2];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [self dew_showProgressHUD:0.5];
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [self dew_showProgressHUD:1];
-//            });
-//        });
-//    });
-
-//    UIView *view = [UIView new];
-//    view.backgroundColor = [UIColor redColor];
-//    view.frame = CGRectMake(0, 0, 100, 100);
-//    [self dew_showBoxWithCustomView:view shouldShowBackgroundView:NO];
-   // [self dew_showToast:@"你说什么?"];
 
     [self layoutPageSubviews];
 

@@ -9,5 +9,8 @@
 #ifndef HUDComponent_h
 #define HUDComponent_h
 
+#import "UIViewController+DEWHUD.h"
+#import "UIWindow+DEWHUD.h"
+#import "DEWHUDWarpper.h"
 
 #endif /* HUDComponent_h */

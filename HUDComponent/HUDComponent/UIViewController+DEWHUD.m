@@ -18,17 +18,17 @@ static int kProgressViewTag = 88888;
 
 @implementation UIViewController (DEWHUD)
 
-- (void)dew_showToast:(NSString *)toast
+- (void)showToast:(NSString *)toast
 {
     [self _showToastWithTitle:nil detail:toast];
 }
 
-- (void)dew_showToastWithTitle:(NSString *)title detail:(NSString *)detail
+- (void)showToastWithTitle:(NSString *)title detail:(NSString *)detail
 {
     [self _showToastWithTitle:title detail:detail];
 }
 
-- (void)dew_showAnimatingWithImages:(NSArray *)images
+- (void)showAnimatingWithImages:(NSArray *)images
 {
     if (images.count) {
         UIImageView *loadingImageView = [[UIImageView alloc]init];
@@ -54,7 +54,7 @@ static int kProgressViewTag = 88888;
     }
 }
 
-- (void)dew_hideAnimating
+- (void)hideAnimating
 {
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
     UIView *view = [window viewWithTag:kLoadingViewTag];
@@ -64,7 +64,7 @@ static int kProgressViewTag = 88888;
     }];
 }
 
-- (void)dew_showProgressHUD:(CGFloat)progress
+- (void)showProgressHUD:(CGFloat)progress
 {
     GTProgressView *progressView = [self.view viewWithTag:kProgressViewTag];
     if (!progressView) {
@@ -79,7 +79,7 @@ static int kProgressViewTag = 88888;
     progressView.progress = progress;
 }
 
-- (void)dew_hideProgressHUD
+- (void)hideProgressHUD
 {
     GTProgressView *progressView = [self.view viewWithTag:kProgressViewTag];
     [self _animation:^{
@@ -87,9 +87,9 @@ static int kProgressViewTag = 88888;
     }];
 }
 
-- (void)dew_showBoxWithCustomView:(UIView *)customView shouldShowBackgroundView:(BOOL)show
+- (void)showBoxWithCustomView:(UIView *)customView shouldShowBackgroundView:(BOOL)show
 {
-    [self dew_hideBox];
+    [self hideBox];
     UIView *backgroudView = [UIView new];
     backgroudView.frame = self.view.bounds;
     backgroudView.tag = kBoxTag;
@@ -110,7 +110,7 @@ static int kProgressViewTag = 88888;
     }];
 }
 
-- (void)dew_hideBox
+- (void)hideBox
 {
     UIView *view = [self.view viewWithTag:kBoxTag];
     if (view) {
@@ -153,7 +153,7 @@ static int kProgressViewTag = 88888;
     });
 }
 
-- (void)_animation:(void(^)())animation
+- (void)_animation:(void(^)(void))animation
 {
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         if (animation) {

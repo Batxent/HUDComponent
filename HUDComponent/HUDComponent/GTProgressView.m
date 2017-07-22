@@ -35,11 +35,10 @@
     self = [super init];
     if (self) {
 
-
         self.view = view;
 
         self.frame = self.view.bounds;
-        self.backgroundColor = [[UIColor blackColor]colorWithAlphaComponent:0.8];
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.8];
 
         [self addSubview:self.borderView];
         [self.borderView addSubview:self.progressWholeView];

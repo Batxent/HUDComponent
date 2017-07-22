@@ -10,23 +10,23 @@
 
 @interface UIViewController (DEWHUD)
 
-- (void)dew_showToast:(NSString *)toast;
-- (void)dew_showToastWithTitle:(NSString *)title detail:(NSString *)detail;
+- (void)showToast:(NSString *)toast;
+- (void)showToastWithTitle:(NSString *)title detail:(NSString *)detail;
 
 /**
  默认居中，custom view 的bounds 需要提前设好
  */
-- (void)dew_showBoxWithCustomView:(UIView *)customView  shouldShowBackgroundView:(BOOL)show;
-- (void)dew_hideBox;
+- (void)showBoxWithCustomView:(UIView *)customView  shouldShowBackgroundView:(BOOL)show;
+- (void)hideBox;
 
 /**
  展示全屏loading动画,注意无法在viewDidLoad里面使用
  */
-- (void)dew_showAnimatingWithImages:(NSArray *)images;
-- (void)dew_hideAnimating;
+- (void)showAnimatingWithImages:(NSArray *)images;
+- (void)hideAnimating;
 
-- (void)dew_showProgressHUD:(CGFloat)progress;
-- (void)dew_hideProgressHUD;
-
+- (void)showProgressHUD:(CGFloat)progress;
+- (void)hideProgressHUD;
 
 @end
+

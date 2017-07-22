@@ -7,7 +7,7 @@
 //
 
 #import "ToastViewController.h"
-#import "UIViewController+DEWHUD.h"
+#import "DEWHUDWarpper.h"
 
 @interface ToastViewController ()
 
@@ -22,14 +22,19 @@
     [super viewDidLoad];
 
 
-    self.title = @"toast";}
+    self.title = @"toast";
+    
+    
+}
 
 
 #pragma mark - Event response
 - (void)buttonClicked:(UIButton *)sender
 {
-    [self dew_showToast:@"toast"];
+   
     
+    [DEWHUDWarpper showToast:@"toast"];
+
 }
 
 
